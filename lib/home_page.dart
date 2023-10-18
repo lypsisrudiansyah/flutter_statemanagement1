@@ -23,14 +23,16 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
-  void updateConterObservable(params) {
-    
+  void updateConterObservable() {
+    // & some people called this observable value, every time the value changed, it will rebuild the UI / Widget,
+    // & if you write counter2.value++; 10 times, it will rebuild the UI / Widget 10 times
+    counter2.value++;
   }
 
   @override
   void initState() {
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) { });
-    
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {});
+
     super.initState();
   }
 
@@ -56,7 +58,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               const SizedBox(height: 20.0),
               Text(
-                counter.toString(),
+                "SetState on counter : $counter",
                 style: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
@@ -68,7 +70,28 @@ class _HomePageState extends State<HomePage> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () => updateCounter(),
-                  child: const Text("Update Counter"),
+                  child: const Text("Update counter"),
+                ),
+              ),
+              const Divider(),
+              ValueListenableBuilder(
+                valueListenable: counter2,
+                builder: (context, value, child) {
+                  return Text(
+                    "ObservableValue on counter2 : ${counter2.value}",
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  );
+                },
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: 40,
+                child: ElevatedButton(
+                  onPressed: () => updateConterObservable(),
+                  child: const Text("Update counter2"),
                 ),
               ),
             ],

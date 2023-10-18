@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_statemanagement1/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter State Management'),
-        ),
-        body: const Center(
-          child: Text("Let's Learn"),
-        ),
-      ),
+      home: const HomePage(),
     );
   }
 }

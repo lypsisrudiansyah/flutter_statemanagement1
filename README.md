@@ -1,6 +1,8 @@
 # flutter_statemanagement1
 
-A new Flutter project.
+## Preview
+![msedge_mYak0ngtmc](https://github.com/lypsisrudiansyah/flutter_statemanagement1/assets/52348378/dfd59f4a-f306-44b9-8e3c-c8a536dbc83f)
+
 
 ## Getting Started
 
